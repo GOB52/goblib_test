@@ -31,7 +31,7 @@ TEST(Profile, Basic)
     {
         MeasuringInstrument<std::chrono::system_clock,std::chrono::seconds> m_sys("system_clock", false);
 #if defined(ESP32)
-        std::chrono::milliseconds(1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         EXPECT_GE(m_sys.elapsed().count(),  std::chrono::millseconds(1000).count() );
 #else
         std::this_thread::sleep_for(std::chrono::seconds(1));
