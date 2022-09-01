@@ -1,5 +1,6 @@
 # goblib\_test
-Unit test with googletest. shared between goblib and goblib_m5s.
+Unit test with googletest. shared between goblib and goblib\_m5s.
+Used as a submodule in goblib and goblib\_m5s.
 
 ## test_dir
 
@@ -12,7 +13,7 @@ Unit test with googletest. shared between goblib and goblib_m5s.
 ## platform.ini
 
 ### Use test cases only test\_dir\test\_\*.cpp
-test\_ignore=embedded/*
+test\_filter=shared/*
 
 ### Use test cases embedded/test\_m5s and test\_dir/test\_\*.cpp
 test\_filter=embedded/test_m5s

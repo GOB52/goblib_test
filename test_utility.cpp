@@ -295,15 +295,19 @@ template<typename T> void test_next_int()
     using next_int_t = goblib::int_by_size_t<sizeof(T) * CHAR_BIT + 1>;
 
     EXPECT_GT(sizeof(next_int_t), sizeof(T)) << TypeName<T>();
-    EXPECT_TRUE(std::is_signed<next_int_t>::value);
+    EXPECT_TRUE(std::is_signed<next_int_t>::value) << TypeName<T>();
     EXPECT_EQ(std::is_signed<next_int_t>::value, std::is_signed<T>::value) << TypeName<T>();
 
-
+    if(sizeof(T) == 1) { printf("%d:%d:%d\n",
+                                std::is_signed<next_int_t>::value,
+                                std::is_signed<T>::value,
+                                std::is_signed<char>::value); }
+    
     using UT = typename std::make_unsigned<T>::type;
     using next_uint_t = goblib::uint_by_size_t<sizeof(UT) * CHAR_BIT + 1>;
 
     EXPECT_GT(sizeof(next_uint_t), sizeof(UT)) << TypeName<UT>();
-    EXPECT_TRUE(std::is_unsigned<next_uint_t>::value);
+    EXPECT_TRUE(std::is_unsigned<next_uint_t>::value) << TypeName<UT>();
     EXPECT_EQ(std::is_signed<next_uint_t>::value, std::is_signed<UT>::value) << TypeName<UT>();
 }
 //
