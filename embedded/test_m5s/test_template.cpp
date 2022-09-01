@@ -8,7 +8,7 @@ using namespace goblib::template_helper;
 
 TEST(Template, is_clock)
 {
-    b = goblib::template_helper::is_clock<goblib::m5s::arduino_clock>::value;
+    auto b = goblib::template_helper::is_clock<goblib::m5s::arduino_clock>::value;
     EXPECT_TRUE(b);
     b = goblib::template_helper::is_clock<goblib::m5s::esp_clock>::value;
     EXPECT_TRUE(b);
