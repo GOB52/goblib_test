@@ -51,5 +51,3 @@ void loop()
     test();
     delay(1000 * 5);
 }
-
-#error "MAIN TEST"
