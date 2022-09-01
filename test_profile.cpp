@@ -29,30 +29,30 @@ TEST(Profile, Basic)
     
     do
     {
-        MeasuringInstrument<std::chrono::system_clock,std::chrono::seconds> m_sys("system_clock", false);
+        MeasuringInstrument<std::chrono::system_clock,std::chrono::seconds> mi_sys("system_clock", false);
 #if defined(ESP32)
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-        EXPECT_GE(m_sys.elapsed().count(),  std::chrono::millseconds(1000).count() );
+        EXPECT_GE(mi_sys.elapsed().count(), std::chrono::milliseconds(1000));
 #else
         std::this_thread::sleep_for(std::chrono::seconds(1));
-        EXPECT_GE(m_sys.elapsed().count(),  std::chrono::seconds(1).count() );
+        EXPECT_GE(mi_sys.elapsed().count(),  std::chrono::seconds(1).count() );
 #endif
 
     }while(0);
 
     do
     {
-        MeasuringInstrument<std::chrono::high_resolution_clock, std::chrono::nanoseconds> m_high("high_resolution_clock", false);
+        MeasuringInstrument<std::chrono::high_resolution_clock, std::chrono::nanoseconds> mi_high("high_resolution_clock", false);
         std::this_thread::sleep_for(std::chrono::microseconds(1)); // 1 usec.
-        EXPECT_GE(m_high.elapsed().count(),  std::chrono::nanoseconds(1000).count() );
+        EXPECT_GE(mi_high.elapsed().count(),  std::chrono::nanoseconds(1000).count() );
 
     }while(0);
 
     do
     {
-        MeasuringInstrument<std::chrono::steady_clock, std::chrono::milliseconds> m_steady("steady_clock", false);
+        MeasuringInstrument<std::chrono::steady_clock, std::chrono::milliseconds> mi_steady("steady_clock", false);
         std::this_thread::sleep_for(std::chrono::milliseconds(10)); // 10 msec
-        EXPECT_GE(m_steady.elapsed().count(), std::chrono::milliseconds(10).count() );
+        EXPECT_GE(mi_steady.elapsed().count(), std::chrono::milliseconds(10).count() );
 
     }while(0);
 #endif
