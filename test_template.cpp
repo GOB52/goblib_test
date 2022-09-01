@@ -3,11 +3,6 @@
 #include <gob_template_helper.hpp>
 using namespace goblib::template_helper;
 #include "gob_math.hpp"
-
-#if defined(ESP32) && defined(ARDUINO)
-#include <gob_m5s_clock.hpp>
-#endif
-
 #include <chrono>
 #include <array>
 
@@ -41,8 +36,6 @@ template<typename T> auto temp_func(const T& v, const T&, const T&)
 }
 //
 }
-
-
 
 TEST(Template, Basic)
 {
@@ -185,12 +178,6 @@ TEST(Template, is_clock)
     EXPECT_TRUE(b);
     b = goblib::template_helper::is_clock<std::chrono::high_resolution_clock>::value;
     EXPECT_TRUE(b);
-#if defined(ESP32) && defined(ARDUINO)
-    b = goblib::template_helper::is_clock<goblib::m5s::arduino_clock>::value;
-    EXPECT_TRUE(b);
-    b = goblib::template_helper::is_clock<goblib::m5s::esp_clock>::value;
-    EXPECT_TRUE(b);
-#endif
     b = goblib::template_helper::is_clock<int>::value;
     EXPECT_FALSE(b);
     b = goblib::template_helper::is_clock<HasLess>::value;

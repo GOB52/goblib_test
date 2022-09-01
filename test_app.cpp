@@ -8,14 +8,7 @@
 #include <thread>
 #include <chrono>
 
-#if defined(ESP32) && defined(ARDUINO)
-#include <gob_m5s_clock.hpp>
-#include <gob_m5s_thread.hpp>
-#include <Arduino.h>
-using app_clock = goblib::m5s::esp_clock;
-#else
 using app_clock = std::chrono::steady_clock;
-#endif
 
 class TestApp : public goblib::App<app_clock, 30,60>
 {
@@ -31,14 +24,6 @@ class TestApp : public goblib::App<app_clock, 30,60>
     virtual void update(float /*delta*/) override { /*puts(__func__);*/ ++_cnt_u; }
     virtual void render() override { /*puts(__func__);*/ ++_cnt_r; }
 
-    #if defined(ESP32) && defined(ARDUINO)
-    virtual void sleep_until(const std::chrono::time_point<app_clock, UpdateDuration>& abs_time) override
-    {
-        auto us = std::chrono::duration_cast<std::chrono::microseconds>(abs_time - app_clock::now()).count();
-        delay(us > 0 ? us / 1000 : 0);
-        while(app_clock::now() < abs_time){ taskYIELD(); }
-    }
-    #endif
   protected:
     std::size_t _cnt_fu;
     std::size_t _cnt_u;

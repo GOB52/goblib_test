@@ -1,26 +1,19 @@
 /*
   Unittest for gob_app
 */
-
+#include "gtest/gtest.h"
 #include <gob_app.hpp>
 #include <gob_m5s_clock.hpp>
 #include <gob_m5s_thread.hpp>
 #include <gob_math.hpp>
-
-
-#include "gtest/gtest.h"
-
 #include <thread>
 #include <chrono>
-
 #include <Arduino.h>
 
 //using app_clock = goblib::m5s::arduino_clock;
 //using app_clock = std::chrono::steady_clock;
 using app_clock = goblib::m5s::esp_clock;
 //using app_clock = std::chrono::high_resolution_clock;
-
-
 
 class TestApp : public goblib::App<app_clock, 30,60>
 {
@@ -63,7 +56,7 @@ class TestApp2 : public TestApp
 };
     
 
-TEST(App, Basic)
+TEST(App, M5Stack)
 {
     TestApp app;
     TestApp2 app2;
@@ -88,4 +81,3 @@ TEST(App, Basic)
     EXPECT_EQ(app2.frames(), app2.countR());
     EXPECT_FLOAT_EQ(10.0f, goblib::math::round(app2.fps()));
 }
-

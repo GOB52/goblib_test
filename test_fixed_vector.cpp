@@ -1,16 +1,10 @@
 
 
+#include "gtest/gtest.h"
 #include <gob_fixed_vector.hpp>
 using goblib::FixedVector;
-
-#include "gtest/gtest.h"
 #include <numeric>
 #include <memory>
-
-
-#if defined(ARDUINO_M5Stack_Core_ESP32)
-#include <esp_system.h>
-#endif
 
 namespace
 {
@@ -30,10 +24,6 @@ GOBLIB_MAYBE_UNUSED void print_v(const FixedVector<int, sz>& v)
 
 TEST(FixedVector, Basic)
 {
-#if defined(ARDUINO_M5Stack_Core_ESP32)
-    auto heap = esp_get_free_heap_size();
-#endif
-
     {
         //  printf("---vn\n");
         FixedVector<int,sz> vn(5);
@@ -211,12 +201,6 @@ TEST(FixedVector, Basic)
         EXPECT_EQ(v[0], 111);
         EXPECT_EQ(std::accumulate(v.begin(), v.end(), 0), 20+111);
     }
-    
-#if defined(ARDUINO_M5Stack_Core_ESP32)
-    auto heap2 = esp_get_free_heap_size();
-    EXPECT_EQ(heap, heap2);
-#endif
-    
 }
 
 TEST(FixedVector, operator)
@@ -326,10 +310,6 @@ std::uint32_t Dummy::cnt_d = 0;
 
 TEST(FixedVector, for_class)
 {
-#if defined(ARDUINO_M5Stack_Core_ESP32)
-    auto heap = esp_get_free_heap_size();
-#endif
-
     Dummy::cnt_c = Dummy::cnt_d = 0;
     using Vec = FixedVector<Dummy, 8>;
     {
@@ -339,12 +319,4 @@ TEST(FixedVector, for_class)
     //printf("C:%d D:%d\n", Dummy::cnt_c, Dummy::cnt_d);
     EXPECT_EQ(Dummy::cnt_c, 8U + 1U ); /* 8elements + v(8,Dummy()) */
     EXPECT_EQ(Dummy::cnt_c, Dummy::cnt_d);
-
-    
-#if defined(ARDUINO_M5Stack_Core_ESP32)
-    auto heap2 = esp_get_free_heap_size();
-    EXPECT_EQ(heap, heap2);
-#endif
-
 }
-
