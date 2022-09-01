@@ -9,7 +9,7 @@ using namespace goblib::template_helper;
 #include <chrono>
 #include <array>
 
-TEST(Template, is_clock)
+TEST(Template, M5Stack))
 {
     auto b = goblib::template_helper::is_clock<goblib::m5s::arduino_clock>::value;
     EXPECT_TRUE(b);
