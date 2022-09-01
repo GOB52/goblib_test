@@ -29,7 +29,7 @@ TEST(Profile, M5Stack)
 
     do
     {
-        MeasuringInstrument<std::chrono::arduino_clock, std::chrono::milliseconds> mi_arduino("ardiono_clock", false);
+        MeasuringInstrument<goblib::m5s::arduino_clock, std::chrono::milliseconds> mi_arduino("ardiono_clock", false);
         goblib::m5s::this_thread::sleep_for(std::chrono::milliseconds(10)); // 10 msec
         EXPECT_GE(mi_arduino.elapsed().count(), std::chrono::milliseconds(10).count() ) << "arduino_clock";
 
