@@ -52,7 +52,7 @@ TEST(App, Basic)
     for(int i=0;i<30;++i)
     {
         app.pump();
-        printf("%f:%f\n", app.fps(),app.delta());
+        //        printf("%f:%f\n", app.fps(),app.delta());
     }
     EXPECT_EQ(30U, app.frames());
     EXPECT_GE(app.countFU(), 60U); 
