@@ -1,8 +1,7 @@
 /*
   Unittest for gob_shape2d
 */
-
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include <gob_point2d.hpp>
 #include <gob_line2d.hpp>
 #include <gob_rect2d.hpp>

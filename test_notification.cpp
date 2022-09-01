@@ -1,13 +1,14 @@
-
+/*
+  Unittest for notification
+ */
+#include <gtest/gtest.h>
 #include <gob_notification.hpp>
 
-#include "gtest/gtest.h"
 using goblib::Observer;
 using goblib::Subject;
 
 class ReceiverInt;
 class ReceiverString;
-
 
 // 
 struct SenderA : public Subject<SenderA>
@@ -122,6 +123,4 @@ TEST(Notififcation, Basic)
     EXPECT_TRUE(strcmp("XYZ", rb.str)==0);
     EXPECT_EQ(111, rab.v);
     EXPECT_TRUE(strcmp("TEST", rab.str)==0);
-
-    
 }

@@ -1,19 +1,17 @@
 /*
-  Unittest for gob_math
+  Unittest for math
 */
+#include <gtest/gtest.h>
 #include <gob_math.hpp>
 #include "helper.hpp"
 #include "helper_constants.hpp"
 using namespace test::helper;
 using namespace test::constants;
-
-#include "gtest/gtest.h"
 #include <cmath>
 
 constexpr float rad_deg_1 = 57.295776f;
 constexpr float deg_rad_1 = 0.017453f;
 constexpr float tolerance = 0.001f;
-
 
 TEST(Math, PI)
 {

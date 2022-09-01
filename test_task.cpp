@@ -1,12 +1,11 @@
 /*
+  Unittest for gob_task
  */
+#include <gtest/gtest.h>
 #include <gob_task.hpp>
 using goblib::Task;
 using goblib::TaskTree;
 using goblib::TaskMessage;
-
-#include "gtest/gtest.h"
-
 #include <algorithm> // std::all_of
 #include <numeric> // std::accumulate
 

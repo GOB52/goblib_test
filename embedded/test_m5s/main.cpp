@@ -1,8 +1,7 @@
 /*
-  main.cpp
+  Unittest main.cpp for m5stack.
 */
 #include <gtest/gtest.h>
-
 #include <M5stack.h>
 #ifdef min
 # undef min

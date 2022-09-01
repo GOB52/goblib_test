@@ -1,14 +1,11 @@
 /*
   Unittest for rectangle 2d.
 */
+#include <gtest/gtest.h>
 #include <gob_rect2d.hpp>
 using namespace goblib;
-
 #include <cstdint>
 using Rect32 = shape2d::Rectangle<std::int32_t>;
-
-#include "gtest/gtest.h"
-
 #include <limits>
 static constexpr std::int32_t int32_max = std::numeric_limits<std::int32_t>::max();
 static constexpr std::int32_t int32_min = std::numeric_limits<std::int32_t>::min();

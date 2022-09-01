@@ -1,17 +1,13 @@
 /*
   Unittest for gob_m5s_cpu_usage
 */
-#if defined(ESP32)
-
+#include <gtest/gtest.h>
 #include <gob_m5s_cpu_usage.hpp>
 using namespace goblib::m5s;
-
 #include <thread>
 #include <chrono>
 
-#include "gtest/gtest.h"
-
-TEST(CpuUsage, Basic)
+TEST(CpuUsage, M5Stack)
 {
     CpuUsage::setup();
 
@@ -47,5 +43,3 @@ TEST(CpuUsage, Basic)
     EXPECT_EQ(CpuUsage::get_tick_count_1(), 0);
     
 }
-
-#endif

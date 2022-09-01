@@ -1,6 +1,7 @@
 /*
-  Unittest for gob_profile
+  Unittest for gob_profile on M5Stack
 */
+#include <gtest/gtest.h>
 #include <gob_profile.hpp>
 #include <gob_m5s_thread.hpp>
 #ifdef GOBLIB_ENABLE_PROFILE
@@ -8,9 +9,7 @@ using goblib::profile::MeasuringInstrument;
 using goblib::profile::Ordinary;
 #endif
 
-#include "gtest/gtest.h"
-
-TEST(Profile, Basic)
+TEST(Profile, M5Stack)
 {
 
 #ifdef GOBLIB_ENABLE_PROFILE
@@ -56,6 +55,3 @@ TEST(Profile, Basic)
     }while(0);
 #endif
 }
-
-
-

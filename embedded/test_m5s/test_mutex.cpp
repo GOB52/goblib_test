@@ -1,12 +1,12 @@
-
-
+/*
+  Unittest for gob_m5s_mutex
+ */
+#include <gtest/gtest.h>
 #include <gob_m5s_mutex.hpp>
 #include <gob_macro.hpp>
 #include <mutex>
-#include "gtest/gtest.h"
 
-
-TEST(Mutex, Basic)
+TEST(Mutex, M5Stack)
 {
     goblib::m5s::Mutex mtx1;
     goblib::m5s::Mutex mtx2;

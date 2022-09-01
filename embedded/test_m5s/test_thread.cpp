@@ -1,11 +1,10 @@
 /*
-  Unittest for gob_thread
+  Unittest for gob_m5s_thread
 */
+#include <gtest/gtest.h>
 #include <gob_m5s_thread.hpp>
 
-#include "gtest/gtest.h"
-
-TEST(Thread, sleep_for)
+TEST(Thread, M5Stack)
 {
     using clock = std::chrono::steady_clock;
 

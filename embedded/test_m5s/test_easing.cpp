@@ -1,7 +1,7 @@
 /*
-  Unittest for gob_easing
+  Unittest for gob_easing on M5Stack
 */
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include <gob_easing.hpp>
 #include <M5Stack.h>
 #include "helper.hpp"

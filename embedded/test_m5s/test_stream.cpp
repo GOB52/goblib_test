@@ -1,8 +1,7 @@
 /*
   Unittest for stream
 */
-#include "gtest/gtest.h"
-
+#include <gtest/gtest.h>
 #include <gob_memory_stream.hpp>
 #include <gob_utility.hpp> // goblib::size
 #include <gob_endianness.hpp> // goblib::endian
@@ -104,7 +103,7 @@ static bool prepareFile(const char* path)
     return false;
 }
 
-TEST(Stream, M5S)
+TEST(Stream, M5Stack)
 {
     //displayCardInformation();
     //ls("/res/td", true, false);
@@ -169,7 +168,7 @@ TEST(Stream, M5S)
 }
 
 #if 0
-TEST(Stream, Pcm)
+TEST(Stream, M5StackPcm)
 {
     const char path[] = "/res/td/wav/IC.wav";
     {

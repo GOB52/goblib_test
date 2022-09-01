@@ -1,8 +1,8 @@
 /*
   Unittest for gob_singleton
 */
+#include <gtest/gtest.h>
 #include <gob_singleton.hpp>
-#include "gtest/gtest.h"
 #include "helper.hpp"
 #include <cstring>
 

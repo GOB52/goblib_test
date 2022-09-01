@@ -1,4 +1,7 @@
-#include "gtest/gtest.h"
+/*
+  Unittest for templates
+ */
+#include <gtest/gtest.h>
 #include <gob_template_helper.hpp>
 using namespace goblib::template_helper;
 #include "gob_math.hpp"

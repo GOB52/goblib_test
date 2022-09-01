@@ -1,4 +1,7 @@
-
+/*
+  Unittest for FixedPointNumber
+ */
+#include <gtest/gtest.h>
 #include <cstdio>
 #include <gob_fixed_point_number.hpp>
 #include <gob_shape2d.hpp>
@@ -7,7 +10,6 @@
 #include <gob_ellipse2d.hpp>
 #include <gob_math.hpp>
 #include <gob_utility.hpp>
-#include "gtest/gtest.h"
 
 using fx16 = goblib::FixedPointNumber<std::int16_t, 6>; // Q6
 using fx32 = goblib::FixedPointNumber<std::int32_t, 8>; // Q8

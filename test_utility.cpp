@@ -1,8 +1,7 @@
 /*
   Unittest for gob_utility
 */
-#include "gtest/gtest.h"
-
+#include <gtest/gtest.h>
 #include <gob_utility.hpp>
 #include "helper.hpp"
 #include "helper_constants.hpp"
@@ -338,9 +337,4 @@ TEST(Utility, int_by_size)
 #if (defined(GOBLIB_COMPILER_GCC) || defined(GOBLIB_COMPILER_CLANG)) && defined(__SIZEOF_INT128__)
     test_next_int<int64_t>();
 #endif
-
-    test_next_int<intmax_t>();
-    
-
 }
-

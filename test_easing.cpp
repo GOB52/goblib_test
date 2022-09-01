@@ -1,7 +1,7 @@
 /*
   Unittest for gob_easing
 */
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include <gob_easing.hpp>
 #include "helper.hpp"
 

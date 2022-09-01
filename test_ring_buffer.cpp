@@ -1,12 +1,11 @@
 /*
   Unitest for gob_ringbuffer
 */
+#include <gtest/gtest.h>
 #include <cstdio>
-
 #include <gob_ring_buffer.hpp>
 #include <gob_template_helper.hpp>
 using goblib::RingBuffer;
-#include "gtest/gtest.h"
 #include <algorithm>
 
 namespace

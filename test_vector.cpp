@@ -1,7 +1,7 @@
 /*
   Unittest for Vector2<float>
 */
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include <gob_macro.hpp>
 #include <gob_vector2d.hpp>
 #include <vector>

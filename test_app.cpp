@@ -1,8 +1,7 @@
 /*
   Unittest for gob_app
 */
-#include "gtest/gtest.h"
-
+#include <gtest/gtest.h>
 #include <gob_app.hpp>
 #include <gob_math.hpp>
 #include <thread>

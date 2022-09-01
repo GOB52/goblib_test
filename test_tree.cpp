@@ -1,9 +1,8 @@
 /*
   Unittest for gob_tree
 */
-
+#include <gtest/gtest.h>
 #include <gob_tree.hpp>
-#include "gtest/gtest.h"
 
 namespace
 {

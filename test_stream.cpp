@@ -1,7 +1,7 @@
 /*
   Unittest for stream
 */
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include <gob_memory_stream.hpp>
 #include <gob_utility.hpp> // goblib::size
 #include <gob_endianness.hpp> // goblib::endian

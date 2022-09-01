@@ -1,7 +1,7 @@
 /*
-  Unittest for gob_app
+  Unittest for gob_app on M5Stack
 */
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 #include <gob_app.hpp>
 #include <gob_m5s_clock.hpp>
 #include <gob_m5s_thread.hpp>

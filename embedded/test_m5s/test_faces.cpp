@@ -1,11 +1,10 @@
 /*
   Unittest for gob_m5s_faces
 */
+#include <gtest/gtest.h>
 #include <gob_m5s_faces.hpp>
 using goblib::m5s::FaceGB;
 #include <gob_utility.hpp> // goblib::size
-
-#include "gtest/gtest.h"
 
 constexpr FaceGB::Button BtnUp = FaceGB::Button::Up;
 constexpr FaceGB::Button BtnDown = FaceGB::Button::Down;
@@ -16,9 +15,7 @@ constexpr FaceGB::Button BtnB = FaceGB::Button::B;
 constexpr FaceGB::Button BtnSelect = FaceGB::Button::Select;
 constexpr FaceGB::Button BtnStart = FaceGB::Button::Start;
 
-
-
-TEST(Faces, Gameboy)
+TEST(Faces, M5Stack)
 {
     FaceGB gb;
     gb.setup();
@@ -284,5 +281,3 @@ TEST(Faces, Gameboy)
     }
 
 }
-
-
