@@ -42,8 +42,12 @@ class TestApp2 : public TestApp
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
 };
-    
 
+/*
+  ESP32 behavior of std::this_thread::sleep_until() is unstable.
+  So this test will be skipped.
+ */
+#if !defined(ESP32)
 TEST(App, Basic)
 {
     TestApp app;
@@ -70,3 +74,4 @@ TEST(App, Basic)
     EXPECT_EQ(app2.frames(), app2.countR());
     EXPECT_FLOAT_EQ(10.0f, goblib::math::round(app2.fps()));
 }
+#endif
