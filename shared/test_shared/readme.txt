@@ -1,1 +1,1 @@
-Dummy filder for test_filter
+Dummy folder for test_filter / test_ignore.
