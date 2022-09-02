@@ -16,7 +16,9 @@ using goblib::profile::Ordinary;
 
   see also https://en.cppreference.com/w/cpp/thread/sleep_for
   Blocks the execution of the current thread for at least the specified sleep_duration.
- */
+
+  So this test will be skipped.
+*/
 #if !defined(ESP32)
 TEST(Profile, Basic)
 {
