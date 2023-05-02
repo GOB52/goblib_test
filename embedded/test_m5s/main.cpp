@@ -2,10 +2,21 @@
   Unittest main.cpp for m5stack.
 */
 #include <gtest/gtest.h>
-#include <M5stack.h>
-#ifdef min
-# undef min
+#if __has_include(<M5Unified.h>)
+# include <SdFat.h>
+# include <M5Unified.h>
+#else
+# include <M5stack.h>
+# ifdef min
+#   undef min
+# endif
 #endif
+#include <Wire.h>
+
+# ifndef TFCARD_CS_PIN
+#   define TFCARD_CS_PIN (4)
+# endif
+
 
 #include <gob_m5s_sd.hpp>
 #if __has_include (<esp_idf_version.h>)
@@ -24,11 +35,15 @@ static void test()
 
 void setup()
 {
+#ifdef M5UNIFIED_VERSION
+    M5.begin();  
+#else
     M5.begin(true /* LCD */, false /* SD */ , true /* Serial */);
+#endif
     Wire.begin();
-    while(!Serial) { delay(10); }
+    while(!Serial) { delay(100); }
     SdFat& sd = goblib::m5s::SD::instance().sd();
-    while(!sd.begin((unsigned)TFCARD_CS_PIN, SD_SCK_MHZ(25))) { delay(10); }
+    while(!sd.begin((unsigned)TFCARD_CS_PIN, SD_SCK_MHZ(25))) { delay(100); }
 
     /*
     printf("M5 begin\n");
