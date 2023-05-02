@@ -93,14 +93,27 @@ GOBLIB_MAYBE_UNUSED static void ls(const char* path, bool recursive = false, boo
 
 static bool prepareFile(const char* path)
 {
+#if 1
     goblib::m5s::File f;
     if(f.open(path, O_CREAT | O_TRUNC | O_WRONLY))
     {
         f.write("abcdefghijklmnopqrstuvwxyz");
+        f.flush();
         f.close();
         return true;
     }
     return false;
+#else
+    FsFile ff;
+    if(ff.open(path, O_CREAT | O_TRUNC | O_WRONLY))
+    {
+        ff.write("abcdefghijklmnopqrstuvwxyz");
+        ff.flush();
+        ff.close();
+        return true;
+    }
+    return false;
+#endif
 }
 
 TEST(Stream, M5Stack)
@@ -108,7 +121,7 @@ TEST(Stream, M5Stack)
     //displayCardInformation();
     //ls("/res/td", true, false);
 
-    const char* path = "/unittest.000";
+    static const char* path = "/goblibm5s.tst";
     EXPECT_TRUE(prepareFile(path));
     
     {

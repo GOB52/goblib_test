@@ -2,8 +2,16 @@
   Unittest for gob_easing on M5Stack
 */
 #include <gtest/gtest.h>
+#if __has_include(<M5Unified.h>)
+# include <SdFat.h>
+# include <M5Unified.h>
+#else
+# include <M5stack.h>
+# ifdef min
+#   undef min
+# endif
+#endif
 #include <gob_easing.hpp>
-#include <M5Stack.h>
 #include "helper.hpp"
 
 using namespace goblib::easing;
